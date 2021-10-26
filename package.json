@@ -1,0 +1,77 @@
+{
+  "name": "polyshield-ui",
+  "version": "3.2.0",
+  "description": "PolyShield Finance - The most secure yield farm on polygon",
+  "dependencies": {
+    "@coreui/coreui-pro": "^3.2.0",
+    "@coreui/icons": "^2.0.0-rc.0",
+    "@coreui/icons-react": "^1.0.2",
+    "@coreui/react": "^3.4.0",
+    "@walletconnect/web3-provider": "^1.5.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
+    "arken-widget": "^1.0.4",
+    "classnames": "^2.2.6",
+    "core-js": "^3.8.1",
+    "dotenv": "^10.0.0",
+    "enzyme": "^3.11.0",
+    "maticjs": "^1.0.1",
+    "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
+    "react-countup": "^4.4.0",
+    "react-dom": "^17.0.1",
+    "react-epic-spinners": "^0.5.0",
+    "react-ga": "^3.3.0",
+    "react-icons": "^4.2.0",
+    "react-player": "^2.9.0",
+    "react-redux": "^7.2.2",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "react-router-ga": "^1.2.3",
+    "react-toastify": "^8.0.3",
+    "recharts": "^2.0.10",
+    "redux": "4.0.5",
+    "sass": "^1.35.1",
+    "spinkit": "^2.0.1",
+    "web3": "^1.4.0"
+  },
+  "devDependencies": {
+    "auto-changelog": "2.2.0",
+    "mutationobserver-shim": "^0.3.7",
+    "react-scripts": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "clearCache": "jest --clearCache",
+    "test:cov": "npm test -- --coverage --watchAll=false",
+    "test:debug": "react-scripts --inspect-brk test --runInBand",
+    "eject": "react-scripts eject",
+    "zip": "git archive -o coreui-pro-react-admin-template-starter-v$npm_package_version.zip -9 HEAD",
+    "zip-v2": "git archive -o coreui-pro-react-admin-template-starter-v2.zip -9 origin/v2"
+  },
+  "bugs": {
+    "url": "https://github.com/coreui/coreui-pro-react-admin-template-starter/issues"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 10",
+    "not op_mini all"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/*index.js",
+      "!src/serviceWorker.js",
+      "!src/polyfill.js"
+    ]
+  },
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  }
+}

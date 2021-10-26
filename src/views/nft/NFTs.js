@@ -1,25 +1,25 @@
 import { CContainer, CCard, CCol, CRow, CCardBody } from "@coreui/react";
 import React from "react";
-
+import NFT from "./NFTCard"
 
 const NFTs = () => {
   return (
     <CContainer>
       <CRow>
         <CCol>
-         1
+        <NFT num={1}/>
         </CCol>
         <CCol>
-         2
+        <NFT num={2}/>
         </CCol>
         <CCol>
-         3
+        <NFT num={3}/>
         </CCol>
         <CCol>
-         4
+        <NFT num={4}/>
         </CCol>
         <CCol>
-         5
+        <NFT num={5}/>
         </CCol>
       </CRow>
     </CContainer>

@@ -114,13 +114,13 @@ const _nav = [
       }
     ]
   },
-  /*
+  
   {
     _tag: "CSidebarNavItem",
     name: "NFTs",
     to: "/nfts",
     icon: <RiRoadMapLine className="ml-1 mr-3 mb-0 text-primary h5" />,
-  },*/
+  }
 ];
 
 export default _nav;

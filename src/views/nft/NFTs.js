@@ -3,23 +3,24 @@ import React from "react";
 import NFT from "./NFTCard"
 
 const NFTs = () => {
+
   return (
     <CContainer>
       <CRow>
         <CCol>
-        <NFT num={1}/>
+        <NFT tokenId={1} allockPoint={10}/>
         </CCol>
         <CCol>
-        <NFT num={2}/>
+        <NFT tokenId={2} allockPoint={20}/>
         </CCol>
         <CCol>
-        <NFT num={3}/>
+        <NFT tokenId={3} allockPoint={30}/>
         </CCol>
         <CCol>
-        <NFT num={4}/>
+        <NFT tokenId={4} allockPoint={40}/>
         </CCol>
         <CCol>
-        <NFT num={5}/>
+        <NFT tokenId={5} allockPoint={50}/>
         </CCol>
       </CRow>
     </CContainer>

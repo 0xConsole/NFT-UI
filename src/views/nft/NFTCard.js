@@ -55,6 +55,9 @@ const NFT = (props) => {
   const [sellPrice, setSellPrice] = React.useState(0);
   const { monitorTransaction } = useTestnetTransactionMonitor();
 
+  // claim part
+  const [claimAmount, setClaimAmount] = React.useState(0);
+
 
   const fetchData = async () => {
       try {
@@ -98,6 +101,9 @@ const NFT = (props) => {
 
         const approveAddress = await NFTBasicContract.methods.getApproved(props.tokenId).call();
         setIsApprove(approveAddress === NFTMarket_Address);
+
+        const claimAmountFrom = await NFTBasicContract.methods.getClaimableAmount(props.tokenId).call();
+        setClaimAmount(parseFloat(web3.utils.fromWei(claimAmountFrom.toString(), "ether")).toFixed(2));
 
         const nftMarketItemId = await NFTMarketContract.methods.contractToTokenToItemId(NFTBasic_Address, props.tokenId).call();
         setItemId(nftMarketItemId);
@@ -211,6 +217,26 @@ const NFT = (props) => {
       .catch(() => {});
 
   }
+    const claim = async (_tokenId, _account) => {
+      if (_account === null || _account === undefined) return false;
+      const web3I = ConnectedWeb3Provider.web3;
+
+      const _NFTBasic_Address = new web3I.eth.Contract(
+        NFTBasicABI,
+        NFTBasic_Address
+      );
+
+      _NFTBasic_Address.methods
+        .claim(_tokenId)
+        .send( { from: _account } )
+        .then(function (e) {
+          setClaimAmount(0)
+        })
+        .catch(() => {
+          // alert('something net wrong');
+        });
+    }
+
 
     return (
         <>
@@ -224,7 +250,7 @@ const NFT = (props) => {
                   width="100%"
                   alt="Rotating SHI3LD"
                 />
-
+              <h2><CBadge color="primary" size="sm" shape="rounded-pill">Claim: {claimAmount} SHI3LD</CBadge></h2>
               {!loading ? (
                 <>
                   { isOwner || isSellPending ? (
@@ -235,7 +261,9 @@ const NFT = (props) => {
                         )
                         : (
                           <>
-                            <CButton color="primary" variant="outline">Claim</CButton>
+                            {claimAmount > 0 && (
+                              <CButton color="primary" variant="outline" onClick={() => claim(props.tokenId, account)}>Claim</CButton>
+                            )}
                             {!isApprove ? (
                               <CButton color="primary" variant="outline" onClick={ () => approve(props.tokenId,account, NFTMarket_Address)}>Approve</CButton>
                             ) : (
